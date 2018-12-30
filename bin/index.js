@@ -38,11 +38,27 @@ async function login(id_token, pw_token) {
     console.log({ success : !!name, name})
 }
 
+
+async function mytmon() {
+
+    const url = 'http://m.ticketmonster.co.kr/mytmon/list'
+
+    const { data } = await axios.get(url, { jar, withCredentials: true })
+
+
+    const dom = new JSDOM(data)
+    const title = dom.window.document.querySelector('title').textContent
+
+    console.log(title)
+}
+
+
 /* bootstrap */
 (async () => {
 
     const { ID_TOKEN, PW_TOKEN } = process.env
 
     await login(ID_TOKEN, PW_TOKEN)
+    await mytmon()
 
 })()
