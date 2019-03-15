@@ -11,9 +11,6 @@ const CookieJar = require('tough-cookie').CookieJar
 axiosCookieJarSupport(axios)
 const jar = new CookieJar()
 
-/* cookiejar example
-axios.get('http://m.ticketmonster.co.kr', { jar, withCredentials: true }).then(e => console.log(jar, e.config.jar === jar)) */
-
 
 async function login(id_token, pw_token) {
 
@@ -33,9 +30,9 @@ async function login(id_token, pw_token) {
 
 
     const dom = new JSDOM(data)
-    const name = dom.window.document.querySelector('.info_level .txt1').textContent
+    const name = dom.window.document.querySelector('.info_level .txt1')
 
-    console.log({ success : !!name, name})
+    console.log({ success : !!name, ...( name && { name : name.textContent }) })
 }
 
 
