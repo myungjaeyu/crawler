@@ -19,6 +19,7 @@
   "homepage": "https://github.com/myungjaeyu/crawler#readme",
   "dependencies": {
     "axios": "^0.18.0",
+    "dayjs": "1.10.3",
     "jsdom": "^13.1.0"
   }
 }
