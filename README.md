@@ -1,6 +1,7 @@
 # crawler
 
 ## Usage
+
 ```
 $ npm install
 
@@ -12,9 +13,7 @@ $ npm start
 ```bash
 ├── bin/
 │   └── index.js
-│
-├── .env.json
-│
+|
 └── package.json
 ```
 
@@ -23,48 +22,55 @@ $ npm start
 ```js
 /* bootstrap */
 (async () => {
-
-    const { ID_TOKEN, PW_TOKEN } = process.env
-
-    await login(ID_TOKEN, PW_TOKEN)
-    await mytmon()
-    await cart()
-
-})()
+  // const data = await search('2021-01-05')
+  // const data = await search('2021-01-05', '2021-01-07')
+  // const data = await search() /* today */
+})();
 ```
+
 ```
-/* login - http://m.ticketmonster.co.kr/user/login */
-{ success: true, name: '유명재님' }
+2021-01-05 Done..
 
-/* mytmon - http://m.ticketmonster.co.kr/mytmon/list */
-마이티몬 - 티몬 모바일
+2021-01-06 Done..
 
-/* cart - http://order.ticketmonster.co.kr/m/cart */
-[
-    {
-        name: '[슈퍼마트] 생칵테일새우450g',
-        price: '9,900',
-        quantity: '1',
-        url: 'http://mobile.ticketmonster.co.kr/deals/1061188318'
-    },
-    {
-        name: '[슈퍼마트] 노르웨이 생연어 300g이상',
-        price: '9,900',
-        quantity: '1',
-        url: 'http://mobile.ticketmonster.co.kr/deals/1717224306'
-    },
-    {
-        name: '[슈퍼마트] 자연애찬 특란 30개',
-        price: '3,690',
-        quantity: '1',
-        url: 'http://mobile.ticketmonster.co.kr/deals/1010280606'
-    }
-]
+2021-01-07 Done..
+
+2021-01-05 325 {
+  name: '(활)가리비',
+  area: '마산',
+  standard: '중',
+  package: 'box',
+  quantity: 15,
+  high_price: 25000,
+  low_price: 23500,
+  avg_price: 24000
+}
+
+2021-01-06 329 {
+  name: '(활)가리비',
+  area: '마산',
+  standard: '중',
+  package: 'box',
+  quantity: 19,
+  high_price: 24500,
+  low_price: 22200,
+  avg_price: 23100
+}
+
+2021-01-07 293 {
+  name: '(선)가자미',
+  area: '안흥',
+  standard: '중',
+  package: 'kg',
+  quantity: 443.3,
+  high_price: 3000,
+  low_price: 3000,
+  avg_price: 3000
+}
 ```
 
 ## Requirements
+
 - [axios](https://github.com/axios/axios)
-- [axios-cookiejar-support](https://github.com/3846masa/axios-cookiejar-support)
-- [tough-cookie](https://github.com/salesforce/tough-cookie)
 - [jsdom](https://github.com/jsdom/jsdom)
-- [json-dotenv](https://github.com/myungjaeyu/json-dotenv)
+- [dayjs](https://www.npmjs.com/package/dayjs)
