@@ -1,33 +1,7 @@
-require('json-dotenv')()
-
 const axios = require('axios').default
 
 const stringify = require('qs').stringify
 const JSDOM = require('jsdom').JSDOM
-
-async function login(id_token, pw_token) {
-
-    const url = 'http://m.ticketmonster.co.kr/user/login'
-
-    const body = stringify({
-        id : id_token,
-        pw : pw_token,
-        returnUrl : 'http://m.ticketmonster.co.kr/mytmon/list'
-    })
-
-    const headers = {
-        Referer: 'http://m.ticketmonster.co.kr/user/login'
-    }
-
-    const { data } = await axios.post(url, body, { headers, withCredentials: true })
-
-
-    const dom = new JSDOM(data)
-    const name = dom.window.document.querySelector('.info_level .txt1')
-
-    console.log({ success : !!name, ...( name && { name : name.textContent }) })
-}
-
 
 async function mytmon() {
 
@@ -73,9 +47,6 @@ async function cart() {
 /* bootstrap */
 (async () => {
 
-    const { ID_TOKEN, PW_TOKEN } = process.env
-
-    await login(ID_TOKEN, PW_TOKEN)
     await mytmon()
     await cart()
 
