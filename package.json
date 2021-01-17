@@ -19,9 +19,6 @@
   "homepage": "https://github.com/myungjaeyu/crawler#readme",
   "dependencies": {
     "axios": "^0.18.0",
-    "axios-cookiejar-support": "^0.4.2",
-    "jsdom": "^13.1.0",
-    "json-dotenv": "0.0.1",
-    "tough-cookie": "^2.5.0"
+    "jsdom": "^13.1.0"
   }
 }
